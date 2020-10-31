@@ -19,8 +19,7 @@ def home():
 # Route that will trigger the scrape function
 @app.route("/scrape")
 def scrape():
-    costa_data = scrape_costa.scrape_info
-    print(costa_data)
+    costa_data = scrape_costa.scrape_info()
     mongo.db.collection.update({}, costa_data, upsert = True) 
     return redirect("/") 
 
